@@ -1,0 +1,28 @@
+ALTER TABLE `members_info_checked`
+CHANGE COLUMN `contact_name` `celta_flg`  tinyint(4) NULL DEFAULT 1 COMMENT '1无 2有 ' AFTER `wechat`,
+CHANGE COLUMN `contact_phone` `celta_img`  varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT 'celta对应图片' AFTER `celta_flg`,
+CHANGE COLUMN `passport` `cert_other_flg`  varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT 1 COMMENT '1无 2有' AFTER `celta_img`,
+ADD COLUMN `cert_other`  varchar(255) NULL COMMENT 'other输入内容' AFTER `comm_type`,
+ADD COLUMN `cert_other_img`  varchar(255) NULL COMMENT '图片id' AFTER `cert_other`,
+ADD COLUMN `relocate`  tinyint NULL DEFAULT 2 COMMENT '1否 2是' AFTER `cert_other_img`;
+ADD COLUMN `all_city`  tinyint NULL DEFAULT 1 COMMENT '1否 2是' AFTER `relocate`;
+ADD COLUMN `university_img`  varchar(255) NULL COMMENT '学历证书照片id' AFTER `relocate`;
+
+
+ALTER TABLE `members_info`
+CHANGE COLUMN `contact_name` `celta_flg`  tinyint(4) NULL DEFAULT 1 COMMENT '1无 2有 ' AFTER `wechat`,
+CHANGE COLUMN `contact_phone` `celta_img`  varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT 'celta对应图片' AFTER `celta_flg`,
+CHANGE COLUMN `passport` `cert_other_flg`  varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT 1 COMMENT '1无 2有' AFTER `celta_img`,
+ADD COLUMN `cert_other`  varchar(255) NULL COMMENT 'other输入内容' AFTER `comm_type`,
+ADD COLUMN `cert_other_img`  varchar(255) NULL COMMENT '图片id' AFTER `cert_other`,
+ADD COLUMN `relocate`  tinyint NULL DEFAULT 2 COMMENT '1否 2是' AFTER `cert_other_img`;
+ADD COLUMN `all_city`  tinyint NULL DEFAULT 1 COMMENT '1否 2是' AFTER `relocate`;
+ADD COLUMN `university_img`  varchar(255) NULL COMMENT '学历证书照片id' AFTER `relocate`;
+
+ALTER TABLE `members_info_checked`
+MODIFY COLUMN `comm_type`  tinyint(4) NOT NULL COMMENT '1微信 2Skype 3Whatsapp' AFTER `area_code`;
+
+ALTER TABLE `members_info`
+MODIFY COLUMN `comm_type`  tinyint(4) NOT NULL COMMENT '1微信 2Skype 3Whatsapp' AFTER `category`;
+
+
